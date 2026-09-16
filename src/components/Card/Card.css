@@ -1,0 +1,55 @@
+.card-container {
+            display: grid;
+            grid-template-columns: 0.7fr 1.6fr 0.7fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas:
+                    "top-left . ."
+                    ". center ."
+                    ". . bottom-right";
+
+            width: 14.8rem;
+            height: 20.8rem;
+
+            background-color: white;
+
+            font-family: "Ultra", serif;
+            font-size: 2rem;
+            border-radius: 1rem;
+        }
+
+
+.top-left-container {
+    grid-area: top-left;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+}
+
+.center-symbol {
+    grid-area: center;
+    width: 7.5rem;
+    height: 7.5rem;
+    justify-self: center;
+    align-self: center;
+}
+
+.bottom-right-container {
+    grid-area: bottom-right;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+
+img, p {
+    transform: rotate(180deg);
+}
+}
+
+
+.top-left-container p, .bottom-right-container p {
+    margin: 0;
+}
+
+.top-left-container img, .bottom-right-container img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
