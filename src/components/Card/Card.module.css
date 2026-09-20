@@ -1,11 +1,11 @@
-.card-container {
+.cardContainer {
             display: grid;
             grid-template-columns: 0.7fr 1.6fr 0.7fr;
             grid-template-rows: 1fr 1fr 1fr;
             grid-template-areas:
-                    "top-left . ."
+                    "topLeft . ."
                     ". center ."
-                    ". . bottom-right";
+                    ". . bottomRight";
 
             width: 14.8rem;
             height: 20.8rem;
@@ -18,14 +18,14 @@
         }
 
 
-.top-left-container {
-    grid-area: top-left;
+.topLeftContainer {
+    grid-area: topLeft;
     justify-self: center;
     align-self: center;
     text-align: center;
 }
 
-.center-symbol {
+.centerSymbol {
     grid-area: center;
     width: 7.5rem;
     height: 7.5rem;
@@ -33,8 +33,8 @@
     align-self: center;
 }
 
-.bottom-right-container {
-    grid-area: bottom-right;
+.bottomRightContainer {
+    grid-area: bottomRight;
     justify-self: center;
     align-self: center;
     text-align: center;
@@ -45,11 +45,25 @@ img, p {
 }
 
 
-.top-left-container p, .bottom-right-container p {
+.topLeftContainer p, .bottomRightContainer p {
     margin: 0;
 }
 
-.top-left-container img, .bottom-right-container img {
+.topLeftContainer img, .bottomRightContainer img {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+.cardBack {
+    width: 14.8rem;
+    height: 20.8rem;
+    box-sizing: border-box;
+    border: 0.6rem solid white;
+    border-radius: 1rem;
+
+    background-color: white;
+    background-image:
+        repeating-linear-gradient(135deg, rgba(250, 0, 10, 0.5) 0 25px, transparent 0px 50px),
+
+        repeating-linear-gradient(45deg, rgba(250, 0, 10, 0.5) 0 25px, transparent 25px 50px);
 }

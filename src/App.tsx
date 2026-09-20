@@ -4,8 +4,7 @@ import "./App.css";
 function App() {
   return (
   <div>
-    <Card card={{symbol: "hearts", value: "2"}}></Card>
-    <CardBack></CardBack>
+    
   </div>
 )};
 

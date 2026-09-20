@@ -2,8 +2,7 @@ import heart from "../../assets/heart.svg";
 import diamond from "../../assets/diamond.svg";
 import spade from "../../assets/spade.svg";
 import club from "../../assets/club.svg";
-import "./Card.css";
-import "./Card-back.css";
+import styles from "./Card.module.css";
 
 type PlayingCard = {
   symbol: "hearts" | "diamonds" | "spades" | "clubs";
@@ -21,21 +20,21 @@ export default function Card({ card }: { card: PlayingCard}) {
 
 
   return (
-  <div className="card-container">
-    <div className="top-left-container">
+  <div className={styles.cardContainer}>
+    <div className={styles.topLeftContainer}>
       <p>{card.value}</p>
       <img src={symbolImages[card.symbol]} />
     </div>
     
-    <img src={symbolImages[card.symbol]} className="center-symbol" />
+    <img src={symbolImages[card.symbol]} className={styles.centerSymbol} />
 
-    <div className="bottom-right-container">
-      <img src={symbolImages[card.symbol]} className="bottomsymbol"/>
+    <div className={styles.bottomRightContainer}>
+      <img src={symbolImages[card.symbol]} className={styles.bottomSymbol}/>
       <p>{card.value}</p>
     </div>
   </div>
 )}
 
 export function CardBack() {
-  return <div className="card-back"/>
+  return <div className={styles.cardBack}/>
 }
