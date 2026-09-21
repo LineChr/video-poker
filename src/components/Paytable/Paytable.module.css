@@ -1,0 +1,32 @@
+.paytable {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+
+    border: 3px solid white;
+    
+    font-family: "Montserrat", serif;
+    font-weight: 600;
+}
+
+.paytableHand::first-letter {
+    text-transform: uppercase;
+}
+
+.paytableRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: #fb3f47;
+    padding-left: 0.2rem;
+}
+
+.paytableRow:nth-child(even) {
+    background-color: #fc7f84;
+}
+
+.paytablePayouts {
+    text-align: right;
+    border-left: 1px solid white;
+    padding-right: 0.2rem;
+}
