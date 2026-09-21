@@ -9,6 +9,7 @@ type PlayingCard = {
   value:  "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K" | "A";
 };
 
+// kobler opp riktig svg-bildet med riktig kort symbol
 const symbolImages = {
   "hearts": heart,
   "diamonds": diamond,
@@ -16,8 +17,8 @@ const symbolImages = {
   "clubs": club
 }
 
+//viser forsiden av et kort. Tar imot et kort (symbol & verdi) som prop, og viser riktig symbol og verdi på kortet.
 export default function Card({ card }: { card: PlayingCard}) {
-
 
   return (
   <div className={styles.cardContainer}>
@@ -35,6 +36,8 @@ export default function Card({ card }: { card: PlayingCard}) {
   </div>
 )}
 
+
+//viser baksiden av et kort
 export function CardBack() {
   return <div className={styles.cardBack}/>
 }
