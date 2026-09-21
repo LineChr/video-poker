@@ -1,12 +1,12 @@
-import styles from "./Paytable.module.css";
+import styles from "./PayoutTable.module.css";
 
-type PaytableRow = {
+type PayoutTableRow = {
     hand: string;
     payouts: number[];
 };
 
 //data for gevinsttabellen. Hver rad har et navn og et array med gevinstbeløp for antall mynter satset(1-5)
-const paytable: PaytableRow[] = [
+const payoutTable: PayoutTableRow[] = [
     { hand: "royal flush", payouts: [250, 500, 750, 1000, 4000] },
     { hand: "straight flush", payouts: [50, 100, 150, 200, 250] },
     { hand: "four of a kind", payouts: [25, 50, 75, 100, 125] },
@@ -20,14 +20,14 @@ const paytable: PaytableRow[] = [
 
 //går gjennom dataen til paytable og genererer en rad per pokerhånd. 
 //Hver rad viser håndens navn og gevinstbeløp for hvert antall mynter satset
-export default function Paytable() {
+export default function PayoutTable() {
     return(
-        <div className={styles.paytable}>
-            {paytable.map((row) => (
-               <div className={styles.paytableRow} key={row.hand}>
-                    <div className={styles.paytableHand}>{row.hand}</div>
+        <div className={styles.payoutTable}>
+            {payoutTable.map((row) => (
+               <div className={styles.payoutTableRow} key={row.hand}>
+                    <div className={styles.payoutTableHand}>{row.hand}</div>
                     {row.payouts.map((payout, i) => (
-                        <div className={styles.paytablePayouts} key={i}>
+                        <div className={styles.payoutTablePayouts} key={i}>
                             {payout}
                         </div>
                     ))}

@@ -1,4 +1,4 @@
-import Paytable from "../components/Paytable/Paytable";
+import PayoutTable from "../components/PayoutTable/PayoutTable";
 import "./Rules.css";
 
 //viser regel-siden med en beskrivelse av spillet, 
@@ -19,7 +19,7 @@ export default function Rules() {
                 </ol>
                 <h2>paytable</h2>
                 <div className="paytable-wrapper">
-                    <Paytable/>
+                    <PayoutTable/>
                 </div>
                 
             </main>
