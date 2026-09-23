@@ -1,8 +1,8 @@
 import PayoutTable from "../components/PayoutTable/PayoutTable";
 import "./Rules.css";
 
-//viser regel-siden med en beskrivelse av spillet, 
-//en ordered list med hvordan man spiller, og henter inn gevinsttabellen
+/*viser regel-siden med en beskrivelse av spillet, 
+en ordered list med hvordan man spiller, og henter inn gevinsttabellen*/
 export default function Rules() {
         return(
             <main className="rules-container">

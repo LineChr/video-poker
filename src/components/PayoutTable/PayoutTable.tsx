@@ -5,7 +5,7 @@ type PayoutTableRow = {
     payouts: number[];
 };
 
-//data for gevinsttabellen. Hver rad har et navn og et array med gevinstbeløp for antall mynter satset(1-5)
+/*data for gevinsttabellen. Hver rad har et navn og et array med gevinstbeløp for antall mynter satset(1-5)*/
 const payoutTable: PayoutTableRow[] = [
     { hand: "royal flush", payouts: [250, 500, 750, 1000, 4000] },
     { hand: "straight flush", payouts: [50, 100, 150, 200, 250] },
@@ -18,8 +18,8 @@ const payoutTable: PayoutTableRow[] = [
     { hand: "jacks or better", payouts: [1, 2, 3, 4, 5] }
 ];
 
-//går gjennom dataen til paytable og genererer en rad per pokerhånd. 
-//Hver rad viser håndens navn og gevinstbeløp for hvert antall mynter satset
+/*går gjennom dataen til paytable og genererer en rad per pokerhånd. 
+Hver rad viser håndens navn og gevinstbeløp for hvert antall mynter satset*/
 export default function PayoutTable() {
     return(
         <div className={styles.payoutTable}>
