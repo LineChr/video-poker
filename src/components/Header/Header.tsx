@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import styles from "./Header.module.css";
 
 
-//viser en navigasjonmeny til de tre ulike sidene.
+/*viser en navigasjonmeny til de tre ulike sidene.*/
 export default function Header() {
     return (
         <header>
