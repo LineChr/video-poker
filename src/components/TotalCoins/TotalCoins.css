@@ -1,0 +1,10 @@
+.total-coin-container {
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 1rem;
+
+font-size: 1.5rem;
+font-weight: 600;
+color: white;
+}

@@ -1,3 +1,4 @@
+import { useStore } from "../../store/store"
 import styles from "./PayoutTable.module.css";
 
 type PayoutTableRow = {
@@ -21,13 +22,15 @@ const payoutTable: PayoutTableRow[] = [
 /*går gjennom dataen til paytable og genererer en rad per pokerhånd. 
 Hver rad viser håndens navn og gevinstbeløp for hvert antall mynter satset*/
 export default function PayoutTable() {
+    const currentBet = useStore((state) => state.currentBet)
+
     return(
         <div className={styles.payoutTable}>
             {payoutTable.map((row) => (
                <div className={styles.payoutTableRow} key={row.hand}>
                     <div className={styles.payoutTableHand}>{row.hand}</div>
                     {row.payouts.map((payout, i) => (
-                        <div className={styles.payoutTablePayouts} key={i}>
+                        <div className={i + 1 === currentBet ? styles.payoutTableActive : styles.payoutTablePayouts} key={i}>
                             {payout}
                         </div>
                     ))}

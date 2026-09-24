@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useStore } from "../store/store";
+import { useNavigate } from "react-router";
 import "./PlayerSelect.css";
 
 
@@ -9,6 +10,8 @@ export default function PlayerSelect() {
     const players = useStore((state) => state.players);
     const addPlayer = useStore((state) => state.addPlayer);
     const [newPlayerName, setNewPlayerName] = useState("");
+    const setActivePlayer = useStore((state) => state.setActivePlayer);
+    const navigate = useNavigate();
 
     /*her hentes addPlayer fra useStore med navnet i input-feltet.
     addPlayer returnerer true eller false. Om den returnerer true 
@@ -44,9 +47,16 @@ export default function PlayerSelect() {
 
                 <div className="player-list">
                     {players.map((player) => (
-                        <button className="player" key={player.name}>
-                            <p>{player.name}</p>
-                            <p>{player.coins}🪙</p>
+                        <button 
+                            className="player" 
+                            key={player.name}
+                            onClick={() => {
+                                setActivePlayer(player);
+                                navigate("/");
+                        }}
+                        >
+                                <p>{player.name}</p>
+                                <p>{player.coins}🪙</p>
                         </button>
                     ))}
                 </div>

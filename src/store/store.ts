@@ -8,6 +8,12 @@ type Player = {
 type Store = {
     players: Player[];
     addPlayer: (name: string) => boolean;
+
+    activePlayer: Player | null;
+    setActivePlayer: (player: Player) => void;
+
+    currentBet: number;
+    setCurrentBet: (bet: number) => void;
 };
 
 export const useStore = create<Store>((set, get) => ({
@@ -42,5 +48,23 @@ export const useStore = create<Store>((set, get) => ({
         }));
 
         return true;
-    }
+    },
+
+
+    activePlayer: null,
+
+    /*setter hvilken spiller som er aktiv. Tar imot spilleren som skal være aktiv og lagrer den i activePlayer  */
+    setActivePlayer: (player) => {
+        set({ activePlayer: player })
+    },
+
+
+    currentBet: 1,
+
+    /*endrer hvor mye spilleren ønsker å satse. Tar i mot antall mynter spilleren ønsker å satse og lagrer det i currentBet*/
+    setCurrentBet: (bet) => {
+        set({ currentBet: bet })
+    },
+
+
 }));

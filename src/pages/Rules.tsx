@@ -18,10 +18,7 @@ export default function Rules() {
 
                 </ol>
                 <h2>paytable</h2>
-                <div className="paytable-wrapper">
-                    <PayoutTable/>
-                </div>
-                
+                <PayoutTable/>
             </main>
         )
 }
