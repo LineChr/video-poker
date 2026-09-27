@@ -1,0 +1,37 @@
+.bet-container {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    gap: 1rem;
+
+    justify-self: center;
+
+    p {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 600;
+        width: 1rem;
+        text-align: center;
+    }
+
+     button {
+        width: 3rem;
+        padding: 0.7rem;
+     }
+
+     button img {
+        max-width: 100%;
+        object-fit: contain;
+     }
+}
+
+@media (max-width: 500px) {
+    .bet-container {
+
+        button {
+            width: 2rem;
+        }
+    }
+}
