@@ -31,6 +31,8 @@ type Store = {
     gamePhase: GamePhase;
     heldCards: number[];
     toggleHold: (index: number) => void;
+
+    discardedCards: PlayingCard[];
 };
 
 export const useStore = create<Store>()(
@@ -140,14 +142,17 @@ export const useStore = create<Store>()(
     });
 },
 
+    discardedCards: [],
 
-    /*Bytter ut alle kort som ikke er holdt, med kort fra samme kortstokken 
-    som resten av runden bruker. Regner ut hvilken pokerhånd resultat gir og 
-    utbetaler riktig gevinst til aktiv spiller basert på gevinsttabellen. 
+    /*Bytter ut alle kort som ikke er holdt, med kort fra den samme kortstokken som resten av runden bruker. Lagrer de kastede kortene i discardCards. 
+    Regner ut hvilken pokerhånd resultat gir og 
+    utbetaler riktig gevinst til aktiv spiller basert på  gevinsttabellen. 
     Endrer til slutt spillfasen til "finished".*/
     drawCards: () => {
         const { currentHand, heldCards, deck, currentBet, activePlayer, players } = get();
-        let deckIndex = 0;        
+        let deckIndex = 0;  
+        
+        const discarded = currentHand.filter((card, i) => !heldCards.includes(i));
 
         const newHand = currentHand.map((card, i) => {
             if (heldCards.includes(i)) {
@@ -166,6 +171,7 @@ export const useStore = create<Store>()(
         set({ 
             currentHand: newHand, 
             deck: remainingDeck, 
+            discardedCards: discarded,
             gamePhase: "finished", 
             players: players.map((player) =>
                 activePlayer && player.name === activePlayer.name
