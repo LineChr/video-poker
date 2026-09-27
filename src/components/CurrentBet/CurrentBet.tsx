@@ -4,7 +4,7 @@ import leftArrow from "../../assets/left-arrow.png";
 import "./CurrentBet.css";
 
 
-/*viser hvor mye spilleren ønsker å satse. Lar spilleren øke eller minske satsen mellom 1 og 5 mynter*/
+/*Viser hvor mye spilleren ønsker å satse. Lar spilleren øke eller minske satsen mellom 1 og 5 mynter*/
 export default function CurrentBet() {
     const currentBet = useStore((state) => state.currentBet);
     const setCurrentBet = useStore((state) => state.setCurrentBet);
@@ -15,16 +15,16 @@ export default function CurrentBet() {
                 if (currentBet > 1) {
                     setCurrentBet(currentBet - 1);
                 }}}>
-               <img src={leftArrow}/>
+               <img src={leftArrow} alt="pil til venstre"/>
             </button>
 
-            <p>{currentBet}</p>
+            <p>{currentBet}🪙</p>
             
             <button onClick={() => {
                 if (currentBet < 5) {
                     setCurrentBet(currentBet + 1)
                 }}}>
-                <img src={rightArrow}/>
+                <img src={rightArrow} alt="pil til høyre"/>
             </button>
         </div>
     )

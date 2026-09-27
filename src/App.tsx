@@ -1,12 +1,11 @@
 import "./App.css";
-import PayoutTable from "./components/PayoutTable/PayoutTable";
-import Footer from "./components/Footer/Footer";
+import Game from "./pages/Game";
+
 
 function App() {
   return (
   <div>
-    <PayoutTable/>
-    <Footer/>
+    <Game/>
   </div>
 )};
 

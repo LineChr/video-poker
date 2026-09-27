@@ -25,14 +25,14 @@ footer {
     button {
             cursor: pointer;
             border: none;
-            background-color: lightskyblue;
+            background-color: #feac42;
             color: black;
             font-family: "Montserrat", serif;
             font-weight: 800;
             font-size: 1.2rem;
             height: 3rem;
             border-radius: 15px;
-            box-shadow: 0 8px 0 0 rgb(77, 115, 138);
+            box-shadow: 0 8px 0 0 rgba(253, 140, 35);
     
             transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
@@ -47,4 +47,18 @@ footer {
 .button-deal {
     width: 8rem;
     justify-self: center;
+}
+
+@media (max-width: 500px) {
+    .footer-container {
+        width: 100%;
+        min-width: 0;
+        padding-right: 1rem;
+    }
+
+    .button-deal {
+        width: 6rem;
+    }
+
+    
 }

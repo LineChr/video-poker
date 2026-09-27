@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useStore } from "../store/store";
 import { useNavigate } from "react-router";
 import "./PlayerSelect.css";
+import Footer from "../components/Footer/Footer";
 
 
-/*siden som viser hvor man kan opprette ny spiller 
-og bytte til annen spiller*/
+/*Viser siden hvor man kan opprette ny spiller og bytte mellom spillere. Når man velger spiller blir man send til game-siden*/
 export default function PlayerSelect() {
     const players = useStore((state) => state.players);
     const addPlayer = useStore((state) => state.addPlayer);
@@ -13,15 +13,12 @@ export default function PlayerSelect() {
     const setActivePlayer = useStore((state) => state.setActivePlayer);
     const navigate = useNavigate();
 
-    /*her hentes addPlayer fra useStore med navnet i input-feltet.
-    addPlayer returnerer true eller false. Om den returnerer true 
-    så tømmes input-feltet, om den returnerer false popper det opp en 
-    alert om navnet var tomt eller allerede i bruk.*/
+    /*Her hentes addPlayer fra useStore med navnet i input-feltet. addPlayer returnerer true eller false. Om den returnerer true så tømmes input-feltet, om den returnerer false popper det opp en alert om navnet var tomt eller allerede i bruk.*/
     function handleNewPlayer() {
         const success = addPlayer(newPlayerName);
         if (success) {
             setNewPlayerName("");
-        }else {
+        } else {
             alert("Name is empty or already taken.");
         }
     }
