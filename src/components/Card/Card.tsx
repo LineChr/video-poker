@@ -3,13 +3,9 @@ import diamond from "../../assets/diamond.svg";
 import spade from "../../assets/spade.svg";
 import club from "../../assets/club.svg";
 import styles from "./Card.module.css";
+import type { PlayingCard } from "../../types/PlayingCard"; 
 
-type PlayingCard = {
-  symbol: "hearts" | "diamonds" | "spades" | "clubs";
-  value:  "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "J" | "Q" | "K" | "A";
-};
-
-// kobler opp riktig svg-bildet med riktig kort symbol
+/*Kobler riktig svg-bildet til riktig kort symbol*/
 const symbolImages = {
   "hearts": heart,
   "diamonds": diamond,
@@ -17,27 +13,35 @@ const symbolImages = {
   "clubs": club
 }
 
-//viser forsiden av et kort. Tar imot et kort (symbol & verdi) som prop, og viser riktig symbol og verdi på kortet.
-export default function Card({ card }: { card: PlayingCard}) {
+interface CardProps {
+  card: PlayingCard;
+  isHeld?: boolean;
+  onClick?: () => void;
+}
+
+/*Viser forsiden av et kort. Tar imot et kort (symbol & verdi) som prop, 
+og viser riktig symbol og verdi på kortet. isHeld styrer som kortet 
+vises som holdt, onClick kalles når kortet klikkes. */
+export default function Card({ card, isHeld = false, onClick }: CardProps) {
 
   return (
-  <div className={styles.cardContainer}>
+  <div className={`${styles.cardContainer} ${isHeld ? styles.held : ""}`} onClick={onClick}>
     <div className={styles.topLeftContainer}>
       <p>{card.value}</p>
-      <img src={symbolImages[card.symbol]} />
+      <img src={symbolImages[card.symbol]} alt={card.symbol} />
     </div>
     
-    <img src={symbolImages[card.symbol]} className={styles.centerSymbol} />
+    <img src={symbolImages[card.symbol]} alt={card.symbol} className={styles.centerSymbol} />
 
     <div className={styles.bottomRightContainer}>
-      <img src={symbolImages[card.symbol]} className={styles.bottomSymbol}/>
+      <img src={symbolImages[card.symbol]} alt={card.symbol} className={styles.bottomSymbol}/>
       <p>{card.value}</p>
     </div>
   </div>
 )}
 
 
-//viser baksiden av et kort
+/*Viser baksiden av et kort*/
 export function CardBack() {
   return <div className={styles.cardBack}/>
 }
